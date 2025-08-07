@@ -4,6 +4,24 @@ function init() {
 	handleHomePage()
 	handleProductModal()
 	handleStoryLightGallery()
+	handleVideosLightGallery()
+	handleNewsLightGallery()
+	handleFaqPage()
+}
+
+function handleFaqPage() {
+	if (document.querySelector(".faq-page")) {
+		document.querySelectorAll('.faq-header')?.forEach(header => {
+			header.addEventListener('click', () => {
+				const item = header.closest('.faq-item');
+				const allItems = document.querySelectorAll('.faq-item');
+				allItems.forEach(i => {
+					if (i !== item) i.classList.remove('is-open');
+				});
+				item.classList.toggle('is-open');
+			});
+		});
+	}
 }
 
 function addLightGalleryForMediaCards() {
@@ -76,8 +94,32 @@ function handleStoryLightGallery() {
 	}
 }
 
+function handleNewsLightGallery() {
+	if (document.querySelector(".news-inner-page .cards-wrapper")) {
+		lightGallery(document.querySelector('.news-inner-page .cards-wrapper, .news-inner-page .details-inner'), {
+			selector: 'a',
+			animateThumb: true,
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+			toggleThumb: true,
+		});
+	}
+}
+
+function handleVideosLightGallery() {
+	if (document.querySelector(":is(.video-page, .gallery-page)")) {
+		lightGallery(document.querySelector(':is(.video-page, .gallery-page) .cards-wrapper'), {
+			selector: 'a',
+			animateThumb: true,
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+			toggleThumb: true,
+		});
+	}
+}
+
 function handleButtonHover(){
-	document.querySelectorAll('.primary-button').forEach(btn => {
+	document.querySelectorAll('.button').forEach(btn => {
 		const text = btn.textContent.trim();
 
 		// Clear existing content
@@ -111,7 +153,7 @@ function headerHeight() {
 
 function handleHomePage() {
 	handleButtonHover()
-	
+
 	if (document.querySelector('.homepage'))  {
 	 new Swiper(".hero-swiper", {
 			effect: "fade",
@@ -133,7 +175,7 @@ function handleHomePage() {
 				enabled: true,
 			},
 		});
-		
+
 		addLightGalleryForMediaCards()
 		handleCounterUpNumbers()
 
@@ -147,7 +189,7 @@ function handleHomePage() {
 function handleProductModal() {
 	const page = document.querySelector(':is(.service-inner-page, .products-page)');
 	if (!page) return;
-	
+
 	const modal = document.querySelector('#custom_modal');
 	const overlay = document.querySelector('#custom_overlay');
 	const closeBtn = document.querySelector('.modal .close-btn');
