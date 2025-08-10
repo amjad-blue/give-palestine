@@ -156,7 +156,7 @@ main {display: flex;flex-direction: column;}
 .section-hero .picture img {height: 100%;width: 100%;object-fit: cover;}
 .section-hero .swiper-pagination-bullet {width: 12px;height: 12px;}
 .section-hero .swiper-pagination-bullet.swiper-pagination-bullet-active {background-color: var(--primary-color);}
-.section-hero .swipe-item:after {content: "";position: absolute;background-image: url(../assets/images/mask2.svg);background-repeat: no-repeat;background-size: cover;width: 500px;height: 730px;top: -12px;bottom: 0;right: 36vw;}
+.section-hero .swipe-item:after {content: "";position: absolute;background-image: url(../assets/images/mask2.svg);background-repeat: no-repeat;background-size: cover;width: 440px;top: -2%;bottom: -2%;right: 36vw;}
 .section-hero .swipe-content {display: flex;align-items: start;justify-content: center;flex-direction: column;height: 100%;padding-inline-start: calc((100vw - var(--app-inner-size)) / 2 - 7.5px);max-width: 800px;}
 .section-hero .swipe-title.section-title {}
 .section-hero .swipe-content-inner > * {max-width: 700px;flex: 1;}

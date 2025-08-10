@@ -95,8 +95,16 @@ function handleStoryLightGallery() {
 }
 
 function handleNewsLightGallery() {
-	if (document.querySelector(".news-inner-page .cards-wrapper")) {
-		lightGallery(document.querySelector('.news-inner-page .cards-wrapper, .news-inner-page .details-inner'), {
+	if (document.querySelector(".content-inner-page .cards-wrapper")) {
+		lightGallery(document.querySelector('.content-inner-page .cards-wrapper'), {
+			selector: 'a',
+			animateThumb: true,
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+			toggleThumb: true,
+		});
+
+		lightGallery(document.querySelector('.content-inner-page .details-inner'), {
 			selector: 'a',
 			animateThumb: true,
 			zoomFromOrigin: false,
