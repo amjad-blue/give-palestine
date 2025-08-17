@@ -9,7 +9,4 @@ document.addEventListener('DOMContentLoaded', () => {
 		duplicated: true,
 		direction: 'ltr'
 	});
-
-	// Wait for the DOM to render and marquee to initialize
-
 });
