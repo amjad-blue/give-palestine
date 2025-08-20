@@ -311,10 +311,6 @@ main {display: flex;flex-direction: column;}
 
 
 
-
-
-
-
 .intro-section .bold {font-weight: 500;}
 .intro-section__desc {line-height: 1.6;}
 .intro-section .app-wrapper > *  + * {margin-top: var(--spacer-2);}
