@@ -21,6 +21,7 @@
 .about-page .story-section .step-item:nth-child(even) .line::after {top: calc(var(--size) / -2 - 0px);bottom: unset;--size: 20px;}
 .about-page .story-section .step-item .step-details__date {font-size: var(--card-title-size);font-weight: 500;}
 .about-page .story-section .step-item .step-details__title {color: var(--primary-color);font-weight: 800;font-size: var(--card-desc-size);}
+.about-page .story-section .step-item :is(.step-img, .step-details),.about-page .story-section .step-item .line:after {transition: .3s ease-out;}
 
 .about-page .story-section .step-item:not(.active) :is(.step-img, .step-details) {opacity: .3;}
 .about-page .story-section .step-item:not(.active) .line {--dot-color: lightgray;}
@@ -172,8 +173,8 @@
 .reports-page .card-link:hover {opacity: 0.8;}
 .reports-page .reports-section .icon-eye {font-size: 1.2rem;}
 .reports-page .reports-section .cards-wrapper .card {min-height: 400px;box-shadow: 0 0 10px #e6e6e6;}
-.reports-page .reports-section .card-link.download {background: white;border: 2px solid var(--primary-color);}
-.reports-page .reports-section .card-link.preview {border: 2px solid white;}
+.reports-page .reports-section .card-link.download {background: white;border: 1px solid var(--primary-color);}
+.reports-page .reports-section .card-link.preview {border: 1px solid white;}
 
 
 .story-page .section-stories {--grid-columns: 2;margin: 0;min-height: unset}
@@ -221,12 +222,12 @@
 
 .plans-page .intro-section {--grid-columns: 2;}
 .plans-page .card {display: flex;box-shadow: var(--shadow-footer);}
-.plans-page .img-wrapper {background: white;flex-shrink: 0;width: 100px;display: flex;align-items: center;justify-content: center;}
-.plans-page .card-details {flex: 1;padding: var(--padding-card);background-color: var(--primary-color);color: white;display: flex;align-items: center;}
+.plans-page .img-wrapper {background: white;border-left: 1px solid var(--extra-light-gray);margin-block: 6px;flex-shrink: 0;width: 100px;display: flex;align-items: center;justify-content: center;}
+.plans-page .card-details {flex: 1;padding: var(--padding-card);color: white;display: flex;align-items: center;}
 .plans-page .card-actions {display: flex;align-items: center;gap: 10px;margin-inline-start: auto;}
 .plans-page .card-link {width: 30px;height: 30px;transition: .4s;display: flex;align-items: center;justify-content: center;background-color: white;border-radius: 50%;}
 .plans-page .card-link:hover {opacity: 0.8;}
-.plans-page .card-link.download {color: var(--primary-color);}
+.plans-page .card-link.download {background-color: var(--primary-color);color: white}
 .plans-page .card-link.preview {background-color: var(--primary-color);border: 1px solid white;}
 .plans-page .card-link.preview span {font-size: 1.2rem;}
 

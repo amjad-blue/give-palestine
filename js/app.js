@@ -213,10 +213,10 @@ function handleHomePage() {
 					return '<span class="' + className + '"></span>';
 				},
 			},
-			autoplay: {
-				delay: 5000,
-				disableOnInteraction: true,
-			},
+			// autoplay: {
+			// 	delay: 5000,
+			// 	disableOnInteraction: true,
+			// },
 			keyboard: {
 				enabled: true,
 			},
@@ -224,7 +224,8 @@ function handleHomePage() {
 
 		// partners-swiper
 		new Swiper(".partners-swiper", {
-			slidesPerView: 2,
+			slidesPerView: "auto",
+			spaceBetween: 30,
 			breakpoints: {
 				640: { slidesPerView: 3 },
 				1024: { slidesPerView: 6 },
@@ -244,9 +245,34 @@ function handleHomePage() {
 
 
 
-		const btn = document.getElementById("playBtn");
-		btn.addEventListener("click", () => {
-			btn.classList.toggle("button--active");
+		const btn = document.querySelector(".button-play");
+		const videoElement = document.querySelector('.swiper-slide .video');
+		const muteBtn = document.querySelector(".mute-sound");
+
+		function toggleVideo() {
+			if (videoElement.paused) {
+				videoElement.play();
+				btn.classList.add("button-active");   // ensure active
+			} else {
+				videoElement.pause();
+				btn.classList.remove("button-active"); // ensure inactive
+			}
+		}
+
+// button click
+		btn.addEventListener("click", toggleVideo);
+
+// video click
+		videoElement.addEventListener("click", toggleVideo);
+
+
+		muteBtn.addEventListener("click", () => {
+			videoElement.muted = !videoElement.muted;
+			if (videoElement.muted) {
+				muteBtn.classList.add("muted");
+			} else {
+				muteBtn.classList.remove("muted");
+			}
 		});
 
 		addLightGalleryForMediaCards()
