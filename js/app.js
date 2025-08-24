@@ -2,11 +2,31 @@ document.addEventListener('DOMContentLoaded', init)
 function init() {
 	headerHeight()
 	handleHomePage()
+	handleAboutPageStepper()
 	handleProductModal()
 	handleStoryLightGallery()
 	handleVideosLightGallery()
 	handleNewsLightGallery()
 	handleFaqPage()
+	handleRegionsPage()
+}
+
+function handleRegionsPage() {
+	if (document.querySelector(".regions-page")){
+		gsap.timeline()
+			.to(".map-image", {
+				opacity: 1,
+				delay: 0.3,
+				ease: "power2.out"
+			})
+			.to(".regions-page .regions-section .map-item", {
+				opacity: 1,
+				y: 0,
+				duration: 0.5,
+				stagger: 0.4,
+				ease: "power2.out"
+			});
+	}
 }
 
 function handleFaqPage() {
@@ -21,6 +41,25 @@ function handleFaqPage() {
 				item.classList.toggle('is-open');
 			});
 		});
+	}
+}
+
+function handleAboutPageStepper(){
+	if (document.querySelector('.about-page')){
+		document.querySelectorAll(".about-page .story-section .step-item").forEach(item => {
+			item.addEventListener("mouseenter", () => {
+				document.querySelector(".about-page .story-section .step-item.active")?.classList.remove('active');
+				item.classList.add('active');
+			})
+
+			item.addEventListener("mouseleave", () => {
+				setTimeout(() => {
+
+					item.classList.remove('active');
+				}, 250)
+			})
+
+		})
 	}
 }
 
@@ -154,7 +193,6 @@ function handleButtonHover(){
 
 }
 
-
 function headerHeight() {
 	document.documentElement.style.setProperty("--header-height", `${document.querySelector('.header').scrollHeight}px`)
 }
@@ -176,12 +214,39 @@ function handleHomePage() {
 				},
 			},
 			autoplay: {
-				delay: 100000,
+				delay: 5000,
 				disableOnInteraction: true,
 			},
 			keyboard: {
 				enabled: true,
 			},
+		});
+
+		// partners-swiper
+		new Swiper(".partners-swiper", {
+			slidesPerView: 2,
+			breakpoints: {
+				640: { slidesPerView: 3 },
+				1024: { slidesPerView: 6 },
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: true,
+			},
+			keyboard: {
+				enabled: true,
+			},
+		});
+
+
+
+		const btn = document.getElementById("playBtn");
+		btn.addEventListener("click", () => {
+			btn.classList.toggle("button--active");
 		});
 
 		addLightGalleryForMediaCards()
