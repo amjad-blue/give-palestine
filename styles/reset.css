@@ -8,7 +8,7 @@ svg {display: block}
 *, :before,:after{box-sizing: border-box}
 html {font-size: 62.5%;}
 body {font-size: clamp(1.2rem,4vw,1.6rem);line-height: 1.4}
-.d-none {display: none;}
+.d-none {display: none !important;}
 input, textarea, button {font-family: inherit; font-size: inherit}
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,

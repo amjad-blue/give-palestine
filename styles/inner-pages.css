@@ -258,7 +258,7 @@
 
 .form-section .form {display: flex;flex-direction: column;margin-top: var(--spacer-1);gap: var(--spacer-2);}
 .form-section .form .form-input {transition: .1s;display: flex;gap: var(--spacer-2);width: 100%;overflow: hidden;}
-.form-input:focus-within {border-color: var(--primary-color);outline:1px solid var(--primary-color);box-shadow: 0 0 10px #017b3252;}
+.form-input:not(> input#phone):focus-within {border-color: var(--primary-color);outline:1px solid var(--primary-color);box-shadow: 0 0 10px #017b3252;}
 
 .form-section .form .form-input :is(input, textarea) {transition: .3s;outline: unset;width: 100%;padding: 8px;border-radius: 4px;border: 1px solid var(--extra-light-gray);}
 .form-section .form .select-wrapper {position: relative;display: inline-block;width: 90px;flex-shrink: 0;}

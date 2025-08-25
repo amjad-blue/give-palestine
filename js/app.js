@@ -200,8 +200,13 @@ function headerHeight() {
 function handleHomePage() {
 	handleButtonHover()
 
+	const buttonPlay = document.querySelector(".button-play");
+	const videoElement = document.querySelector('.swiper-slide .video');
+	const muteBtn = document.querySelector(".mute-sound");
+
+
 	if (document.querySelector('.homepage'))  {
-	 new Swiper(".hero-swiper", {
+		const heroSwiper = new Swiper(".hero-swiper", {
 			effect: "fade",
 			fadeEffect: {
 				crossFade: true,
@@ -213,14 +218,20 @@ function handleHomePage() {
 					return '<span class="' + className + '"></span>';
 				},
 			},
-			// autoplay: {
-			// 	delay: 5000,
-			// 	disableOnInteraction: true,
-			// },
 			keyboard: {
 				enabled: true,
 			},
 		});
+
+// Handle video play/pause
+		heroSwiper.on("slideChangeTransitionStart", function () {
+			// Pause all videos
+			document.querySelectorAll(".hero-swiper video").forEach((video) => {
+				buttonPlay.classList.remove("button-active");
+				video.pause();
+			});
+		});
+
 
 		// partners-swiper
 		new Swiper(".partners-swiper", {
@@ -244,22 +255,19 @@ function handleHomePage() {
 
 
 
-		const btn = document.querySelector(".button-play");
-		const videoElement = document.querySelector('.swiper-slide .video');
-		const muteBtn = document.querySelector(".mute-sound");
 
 		function toggleVideo() {
 			if (videoElement.paused) {
 				videoElement.play();
-				btn.classList.add("button-active");   // ensure active
+				buttonPlay.classList.add("button-active");   // ensure active
 			} else {
 				videoElement.pause();
-				btn.classList.remove("button-active"); // ensure inactive
+				buttonPlay.classList.remove("button-active"); // ensure inactive
 			}
 		}
 
 // button click
-		btn.addEventListener("click", toggleVideo);
+		buttonPlay.addEventListener("click", toggleVideo);
 
 // video click
 		videoElement.addEventListener("click", toggleVideo);
